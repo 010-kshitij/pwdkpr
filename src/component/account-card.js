@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faEdit, faTrash, faEyeSlash, faEye} from '@fortawesome/free-solid-svg-icons';
 
 const AccountCard = () => {
     // Temp object
@@ -49,7 +51,7 @@ const AccountCard = () => {
                     </View>
                     <View style={styles.cardBodyView3_3}>
                         <TouchableOpacity style={{...styles.cardFooterButton, padding: 5}} onPress={() => toggleShowPassword()}>
-                            <Text style={{...styles.cardText}}>{showPassword ? 'Hide' : 'Show'}</Text>
+                            {showPassword ? <FontAwesomeIcon icon={faEyeSlash} size={20} /> : <FontAwesomeIcon icon={faEye} size={20} />}
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -57,10 +59,10 @@ const AccountCard = () => {
             {/* Card Footer */}
             <View style={styles.cardFooterView}>
                 <TouchableOpacity style={styles.cardFooterButton}>
-                    <Text style={{...styles.cardText}}>Edit</Text>
+                    <FontAwesomeIcon icon={ faEdit } size={20} />
                 </TouchableOpacity>
-                <TouchableOpacity style={{...styles.cardFooterButton, backgroundColor: '#ff0000aa'}}>
-                    <Text style={{...styles.cardText, color: '#ffffff'}}>Delete</Text>
+                <TouchableOpacity style={{...styles.cardFooterButton}}>
+                    <FontAwesomeIcon style={{color: '#ff0000aa'}} icon={ faTrash } size={20} />
                 </TouchableOpacity>
             </View>
         </View>
@@ -73,7 +75,7 @@ const styles = StyleSheet.create({
         borderColor: '#aeaeae',
         borderStyle: 'solid',
         overflow: 'hidden',
-        borderRadius: 10,
+        borderRadius: 5,
         margin: 5,
         marginBottom: 10,
         height: 250,
@@ -124,16 +126,16 @@ const styles = StyleSheet.create({
     cardFooterView: {
         flex: 1,
         flexDirection: 'row',
-        justifyContent: 'space-around',
-        borderTopWidth: 0.5,
+        justifyContent: 'flex-end',
+        borderTopWidth: 0,
         borderColor: '#aeaeae',
         borderStyle: 'solid',
     },
     cardFooterButton: {
-        borderWidth: 0.5,
+        borderWidth: 0,
         borderColor: '#aeaeae',
-        flex: 1,
         alignItems: 'center',
+        width: 100,
         justifyContent: 'center'
     }
 });
