@@ -2,10 +2,12 @@ import React from 'react';
 import { Button, StyleSheet, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { useNavigation } from '@react-navigation/native';
 
 import AccountCard from '../component/account-card';
 
 const AccountList = () => {
+    const navigation = useNavigation();
     return (
         <View style={styles.accountListView}>
             <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
@@ -24,7 +26,7 @@ const AccountList = () => {
                 <AccountCard />
             </ScrollView>
             <View style={styles.addButtonView}>
-                <TouchableOpacity style={styles.addButton}>
+                <TouchableOpacity style={styles.addButton} onPress={() => navigation.navigate('AccountDetail')}>
                     <FontAwesomeIcon icon={faPlus} style={{color: '#ffffff'}} />
                 </TouchableOpacity>
             </View>

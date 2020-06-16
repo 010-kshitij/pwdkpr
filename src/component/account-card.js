@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { useNavigation } from '@react-navigation/native';
 import { faEdit, faTrash, faEyeSlash, faEye} from '@fortawesome/free-solid-svg-icons';
 
 const AccountCard = () => {
+    const navigation = useNavigation();
     // Temp object
     const account = {
         id: '123',
@@ -58,7 +60,7 @@ const AccountCard = () => {
             </View>
             {/* Card Footer */}
             <View style={styles.cardFooterView}>
-                <TouchableOpacity style={styles.cardFooterButton}>
+                <TouchableOpacity style={styles.cardFooterButton} onPress={() => { navigation.navigate('AccountDetail', {account}) }}>
                     <FontAwesomeIcon icon={ faEdit } size={20} />
                 </TouchableOpacity>
                 <TouchableOpacity style={{...styles.cardFooterButton}}>
