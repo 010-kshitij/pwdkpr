@@ -4,6 +4,7 @@ import {StyleSheet, Text, TextInput, View} from 'react-native';
 import Container from '../component/container';
 import Header from '../component/header';
 import AccountList from './account-list';
+import Pin from './pin';
 
 const Main = () => {
     return (
@@ -12,7 +13,7 @@ const Main = () => {
             <View style={styles.searchBarView}>
               <TextInput placeholder={'Search...'} />  
             </View>
-            <AccountList />
+            <AccountList /> 
         </Container>
     );
 };
